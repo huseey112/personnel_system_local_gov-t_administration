@@ -1,5 +1,5 @@
 
-Computerized personnel_system_local_gov't_administration (Bootstrap + RBAC + Audit Trail)
+Computerized personnel_system_local_gov't_administration
 =========================================================================
 
 Quick start (XAMPP):
