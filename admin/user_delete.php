@@ -1,0 +1,2 @@
+
+<?php require_once __DIR__ . '/../includes/auth.php'; require_role('Admin'); $id=intval($_GET['id']??0); if($id){ $pdo->prepare('DELETE FROM users WHERE user_id=?')->execute([$id]); audit_log($pdo,'admin',$_SESSION['user_id'],'delete_user','users',$id); } header('Location: users.php'); exit; ?>
