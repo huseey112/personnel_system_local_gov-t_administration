@@ -1,0 +1,97 @@
+*Instructions for Developing – Computerized Personnel Management System*
+
+## *1. Platform & Technology*
+
+* Type: Web-based application
+* Stack: PHP, MySQL, HTML, CSS, JavaScript
+* *Server*: XAMPP (Apache + MySQL) for local deployment
+* *Languages*: English, Hausa,
+
+
+2. Key Users and Roles
+
+1. Admin
+
+   Create/manage system users (Admin, Personnel Officer, Auditor)
+   * Backup/restore data
+   * Switch system language
+   * Reset user accounts
+
+2. Personnel Officer (Staff Officer)
+
+   * Add new staff records (Name, Qualification, Department, Fingerprint ID, Salary)
+   * Update staff records
+   * Search/view staff records
+   * Simulate biometric verification (check fingerprint ID against database)
+
+3.Auditor
+
+   * View payroll information
+   * Generate reports (Staff List, Payroll Report, Audit Trail)
+   * Export reports to PDF
+
+---
+
+## *3. Core Features*
+
+* *User Authentication*: Login/logout with username + password (reset via email though not necessary)
+
+* *Multilingual Interface*: English, Hausa, 
+*
+* *Staff Management*: Add, update, delete, and search staff records
+* *Payroll Management*: Store and display staff salaries (encrypted)
+
+* *Biometric Simulation*: Enter fingerprint ID to confirm staff identity
+* 
+* *Report Generation*: PDF export for payroll, staff list, and audit logs
+* 
+* *Audit Trail*: Record all system activities (e.g., logins, record updates)
+* 
+* *Data Backup/Restore*: Admin can trigger data backup and restoration
+
+* *UI Colors/Theme*: Deep blue, light green, white, grey (official and professional look)
+
+* *Logo*: Simple, local-government styled logo
+
+---
+
+4. Necessary Webpages
+
+1. *Login Page* (username, password, language select, login button)
+2. *Admin Dashboard*
+
+   * Manage Users (create/update system users)
+   * Backup/Restore Data
+   * Language Switch
+
+3. *Personnel Officer Dashboard*
+
+   * Add New Staff
+   * Update Staff Record
+   * Search/View Staff List
+   * Biometric Verification Page
+
+4. *Auditor Dashboard*
+
+   * View Payroll
+   * Generate Reports (PDF)
+   * View Audit Trail
+
+5. *Logout Page*
+
+---
+
+
+*5. Database Structure*
+
+* *Login Table*: id, username, password (hashed), role
+* *Staff Table*: id, name, qualification, department, fingerprint, salary
+* *Payroll Table*: id, staff\_id (foreign key), salary, allowances, deductions
+* *Audit Table*: id, user\_id, action, timestamp
+
+---
+
+✅ *Summary for Developer*:
+Build a PHP-MySQL web system with *3 roles (Admin, Personnel Officer, Auditor)*. The system should manage staff records, payroll, reports, and multilingual interface with Hausa.  Use XAMPP for deployment, design clean dashboards, and ensure reports can be exported as PDF.
+
+---

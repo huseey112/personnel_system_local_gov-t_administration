@@ -1,0 +1,7 @@
+
+<?php session_start(); require 'includes/db.php'; require 'includes/auth.php'; if(!isset($_SESSION['emp_id'])) header('Location: employee_login.php'); $msg='';
+if($_SERVER['REQUEST_METHOD']==='POST'){ $emp_id=intval($_SESSION['emp_id']); $leave_type=$_POST['leave_type']; $start=$_POST['start_date']; $end=$_POST['end_date']; $days=intval((strtotime($end)-strtotime($start))/86400)+1; $pdo->prepare('INSERT INTO leaves (emp_id, leave_type, start_date, end_date, days, status, applied_date) VALUES (?,?,?,?,?,"Pending",NOW())')->execute([$emp_id,$leave_type,$start,$end,$days]); audit_log($pdo,'employee',$emp_id,'apply_leave','leaves', $pdo->lastInsertId()); $msg='Applied'; }
+include 'includes/header.php'; ?>
+<div class="card p-3"><h4>Apply Leave</h4><?php if($msg) echo '<div class="alert alert-success">'.$msg.'</div>'; ?>
+<form method="post" class="row g-3"><div class="col-md-4"><label>Type</label><input name="leave_type" class="form-control" required></div><div class="col-md-4"><label>Start</label><input name="start_date" type="date" class="form-control" required></div><div class="col-md-4"><label>End</label><input name="end_date" type="date" class="form-control" required></div><div class="col-12"><button class="btn btn-gold">Submit</button></div></form></div>
+<?php include 'includes/footer.php'; ?>
